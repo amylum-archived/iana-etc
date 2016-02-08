@@ -7,7 +7,7 @@ RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
 PROTOCOL_URL = https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml
 PORT_URL = https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
 
-PACKAGE_VERSION = $$(grep -m1 '<updated>' $(RELEASE_DIR)/port-numbers.iana | sed 's/[^0-9]//g')
+PACKAGE_VERSION = $$(grep -m1 '<updated>' $(RELEASE_DIR)/usr/share/iana-etc/port-numbers.iana | sed 's/[^0-9]//g')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 

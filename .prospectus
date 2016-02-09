@@ -3,6 +3,7 @@ item do
     url_xpath
     url 'http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml'
     xpath '/html/body/dl/dd[1]'
+    regex /^(\d+)-(\d+)-(\d+)$/, '\1\2\3'
   end
 
   actual do

@@ -1,0 +1,32 @@
+name 'iana-etc'
+org 'amylum'
+
+source(type: 'empty')
+
+patch 'license.patch'
+patch 'scripts.patch'
+
+build do
+  run "mkdir -p #{releasedir}/usr/share/iana-etc #{releasedir}/etc"
+
+  urls = {
+    protocol: 'https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml',
+    port: 'https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml'
+  }
+  target = {
+    protocol: 'protocols',
+    port: 'services'
+  }
+  sharedir = "#{releasedir}/usr/share/iana-etc"
+
+  [:protocol, :port].each do |x|
+    raw_path = "#{sharedir}/#{x}-numbers.iana"
+    run "curl -sLo '#{raw_path}' '#{urls[x]}'"
+    run "gawk -f #{x}s.awk '#{raw_path}' > #{releasedir}/etc/#{target[x]}"
+  end
+  nil
+end
+
+test do
+  # TODO: add tests
+end

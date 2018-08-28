@@ -1,7 +1,7 @@
 iana-etc
 ==========
 
-[![Build Status](https://img.shields.io/circleci/project/amylum/iana-etc/master.svg)](https://circleci.com/gh/amylum/iana-etc)
+[![Build Status](https://img.shields.io/travis/com/amylum/iana-etc.svg)](https://travis-ci.com/amylum/iana-etc)
 [![GitHub release](https://img.shields.io/github/release/amylum/iana-etc.svg)](https://github.com/amylum/iana-etc/releases)
 
 Package repo for [IANA port assignments](http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
